@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Xiaoqian Shi | Operations Management</title>
+  <meta name="description" content="Xiaoqian Shi is a Ph.D. candidate in Operations Management at The Hong Kong Polytechnic University, studying platform operations, sustainable operations, and behavioral operations.">
+  <meta name="theme-color" content="#f6f2e9">
+  <style>
+    :root {
+      --paper: #f6f2e9;
+      --paper-deep: #eee7d9;
+      --ink: #172d3d;
+      --ink-soft: #52616b;
+      --line: #d9d1c2;
+      --accent: #b44f34;
+      --accent-soft: #f0ddd3;
+      --white: #fffdf8;
+      --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(180, 79, 52, .42);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      transform: translateY(-150%);
+      padding: 10px 14px;
+      background: var(--ink);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(246, 242, 233, .9);
+      border-bottom: 1px solid rgba(23, 45, 61, .12);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.24rem;
+      text-decoration: none;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      font-size: .88rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-links .nav-cv {
+      padding: 8px 14px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 999px;
+    }
+
+    .nav-links .nav-cv:hover {
+      color: white;
+      background: var(--accent);
+    }
+
+    .nav-links .nav-cv-disabled,
+    .nav-links .nav-cv-disabled:hover {
+      color: rgba(255, 255, 255, .72);
+      background: var(--ink-soft);
+      cursor: not-allowed;
+    }
+
+    .hero {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 58px;
+      padding: 96px 0 84px;
+    }
+
+    .eyebrow,
+    .section-kicker,
+    .card-kicker {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1,
+    h2,
+    h3 { font-family: var(--serif); }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(4.1rem, 9vw, 7.5rem);
+      font-weight: 500;
+      line-height: .86;
+      letter-spacing: -.065em;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-bottom: 34px;
+      color: var(--ink-soft);
+      font-size: .95rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      background: var(--ink);
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button-secondary:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button-disabled,
+    .button-disabled:hover {
+      color: var(--ink-soft);
+      background: rgba(23, 45, 61, .05);
+      border-color: rgba(23, 45, 61, .25);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .research-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 150px minmax(280px, .85fr) minmax(0, 1.15fr);
+      align-items: center;
+      gap: 28px;
+      padding: 28px 32px;
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 2px;
+    }
+
+    .research-card .card-kicker {
+      margin: 0;
+      color: #e9b6a5;
+    }
+
+    .research-card h2 {
+      margin: 0;
+      font-size: 1.45rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .focus-list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .focus-list li {
+      padding: 3px 18px;
+      border-left: 1px solid rgba(255, 253, 248, .25);
+      font-size: .86rem;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+
+    .focus-list li:first-child { border-left: 0; }
+
+    .section {
+      padding: 92px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-title {
+      margin: 0 0 48px;
+      font-size: clamp(2.45rem, 5vw, 4.4rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .92fr);
+      gap: clamp(48px, 8vw, 112px);
+    }
+
+    .about-copy {
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height: 1.62;
+    }
+
+    .about-copy p:last-child { margin-bottom: 0; }
+
+    .timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      gap: 20px;
+      padding: 0 0 25px;
+    }
+
+    .timeline li:not(:last-child) {
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline time {
+      color: var(--accent);
+      font-size: .79rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+
+    .timeline h3 {
+      margin: -5px 0 4px;
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .timeline p {
+      margin-bottom: 2px;
+      color: var(--ink-soft);
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+
+    .paper-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--ink);
+    }
+
+    .paper {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 215px;
+      gap: 28px;
+      padding: 30px 0 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .paper-number {
+      padding-top: 5px;
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 850;
+    }
+
+    .paper h3 {
+      margin-bottom: 10px;
+      font-size: clamp(1.25rem, 2.1vw, 1.62rem);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .ssrn-link {
+      margin-left: 8px;
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: .62em;
+      font-style: italic;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      white-space: nowrap;
+    }
+
+    .paper-authors {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: .9rem;
+    }
+
+    .paper-meta {
+      padding-top: 4px;
+      text-align: right;
+    }
+
+    .paper-venue {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .paper-year {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--accent);
+      font-size: .7rem;
+      font-weight: 850;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .working-paper {
+      grid-template-columns: 56px minmax(0, 1fr);
+    }
+
+    .paper-status-note {
+      margin: 9px 0 0;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: .98rem;
+      font-style: italic;
+    }
+
+    .experience-wrap { max-width: 760px; }
+
+    .subsection-title {
+      margin-bottom: 28px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--ink);
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    .detail-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .detail-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-list strong {
+      display: block;
+      margin-bottom: 3px;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    .detail-list span {
+      color: var(--ink-soft);
+      font-size: .86rem;
+    }
+
+    .detail-list time {
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .email-section {
+      padding: 70px 0;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .email-link {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 3.2vw, 2rem);
+      text-decoration-color: var(--accent);
+      text-underline-offset: 7px;
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 30px 0 42px;
+      color: var(--ink-soft);
+      font-size: .78rem;
+    }
+
+    .site-footer a {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        gap: 64px;
+        padding: 84px 0 86px;
+      }
+
+      .research-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .focus-list { justify-content: flex-start; }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .paper { grid-template-columns: 44px minmax(0, 1fr); }
+
+      .paper-meta {
+        grid-column: 2;
+        text-align: left;
+      }
+
+    }
+
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 30px, 1120px); }
+
+      .nav {
+        align-items: flex-start;
+        padding: 17px 0;
+      }
+
+      .nav-links { gap: 8px 13px; }
+
+      .nav-links a:not(.nav-cv) { display: none; }
+
+      h1 { font-size: clamp(3.8rem, 19vw, 5.4rem); }
+
+      .hero { padding-top: 68px; }
+
+      .research-card {
+        margin-right: 14px;
+        padding: 30px 24px 24px;
+      }
+
+      .focus-list {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .focus-list li {
+        width: 100%;
+        padding: 8px 0;
+        border-left: 0;
+        border-top: 1px solid rgba(255, 253, 248, .2);
+      }
+
+      .section { padding: 70px 0; }
+
+      .timeline li { grid-template-columns: 78px 1fr; }
+
+      .paper {
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 15px;
+      }
+
+      .site-footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+
+    @media print {
+      .site-header,
+      .hero-actions { display: none; }
+      body { background: white; }
+      .hero { min-height: 0; padding: 36px 0; }
+      .section { break-inside: avoid; padding: 36px 0; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Xiaoqian Shi",
+    "jobTitle": "Ph.D. Candidate in Operations Management",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "The Hong Kong Polytechnic University"
+    },
+    "email": "mailto:xiaoqian.shi@connect.polyu.hk",
+    "knowsAbout": [
+      "Platform Operations",
+      "Socially Responsible and Sustainable Operations",
+      "Behavioral Operations"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">Xiaoqian Shi</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#working-papers">Working Papers</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <span class="nav-cv nav-cv-disabled" aria-disabled="true" title="CV is currently unavailable">CV</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="shell hero" id="top">
+      <div>
+        <p class="eyebrow">Operations Management · Hong Kong</p>
+        <h1>Xiaoqian Shi</h1>
+        <div class="hero-meta">
+          <span>Ph.D. Candidate, The Hong Kong Polytechnic University</span>
+          <span>Advisor: Prof. Yulan Wang</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="mailto:xiaoqian.shi@connect.polyu.hk">Email me</a>
+          <span class="button button-secondary button-disabled" aria-disabled="true" title="CV is currently unavailable">CV</span>
+        </div>
+      </div>
+
+      <aside class="research-card" aria-labelledby="focus-title">
+        <p class="card-kicker">Research focus</p>
+        <h2 id="focus-title">Operations with social and strategic impact.</h2>
+        <ol class="focus-list">
+          <li>Platform operations</li>
+          <li>Responsible &amp; sustainable operations</li>
+          <li>Behavioral operations</li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="section" id="about">
+      <div class="shell">
+        <h2 class="section-title">About</h2>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I am a Ph.D. candidate in Operations Management at The Hong Kong Polytechnic University. My research focuses on platform operations, socially responsible and sustainable operations, and behavioral operations.</p>
+          </div>
+
+          <ol class="timeline" aria-label="Education">
+            <li>
+              <time>2022–Present</time>
+              <div>
+                <h3>The Hong Kong Polytechnic University</h3>
+                <p>Ph.D. in Operations Management</p>
+                <p>Advisor: Prof. Yulan Wang</p>
+              </div>
+            </li>
+            <li>
+              <time>2019–22</time>
+              <div>
+                <h3>Shanghai Jiao Tong University</h3>
+                <p>M.S. in Industrial Engineering</p>
+              </div>
+            </li>
+            <li>
+              <time>2015–19</time>
+              <div>
+                <h3>Chongqing University</h3>
+                <p>B.Eng. in Industrial Engineering</p>
+                <p>B.Ec. in Finance</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="working-papers">
+      <div class="shell">
+        <h2 class="section-title">Working papers</h2>
+
+        <ol class="paper-list">
+          <li class="paper working-paper">
+            <span class="paper-number">01</span>
+            <div>
+              <h3>Supply Chain ESG Transparency: Emerging Trends, Research Gaps, and Opportunities in Operations Management <a class="ssrn-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5256614" target="_blank" rel="noopener noreferrer">SSRN</a></h3>
+              <p class="paper-authors">with Yulan Wang, Pengfei Guo, Christopher Tang, and Jingwen Xu</p>
+              <p class="paper-status-note">Under minor revision at <em>Production and Operations Management</em></p>
+            </div>
+          </li>
+          <li class="paper working-paper">
+            <span class="paper-number">02</span>
+            <div>
+              <h3>Returnless Refunds: Combating Fraudulent Returns in Competitive Markets</h3>
+              <p class="paper-authors">with Yulan Wang and Tingliang Huang</p>
+            </div>
+          </li>
+          <li class="paper working-paper">
+            <span class="paper-number">03</span>
+            <div>
+              <h3>Stringent versus Lax Carbon Disclosure Regulation: Implications for Greenwashing and Welfare <a class="ssrn-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7215038" target="_blank" rel="noopener noreferrer">SSRN</a></h3>
+              <p class="paper-authors">with Yulan Wang, Christopher Tang, and Xiaoshuai Fan</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="shell">
+        <h2 class="section-title">Publications</h2>
+
+        <ol class="paper-list">
+          <li class="paper">
+            <span class="paper-number">01</span>
+            <div>
+              <h3>Optimal product and after-sales service decisions considering risk attitudes under price-dependent uncertain demand</h3>
+              <p class="paper-authors"><strong>Xiaoqian Shi</strong>, Q. Wang, M. Zheng, K. M. Lee, Y. Shen, and E. Pan</p>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-venue">Transportation Research Part E</span>
+              <span class="paper-year">2024</span>
+            </div>
+          </li>
+          <li class="paper">
+            <span class="paper-number">02</span>
+            <div>
+              <h3>Supply chain analysis for standard and customized products with postponement</h3>
+              <p class="paper-authors"><strong>Xiaoqian Shi</strong>, M. Zheng, E. Pan, and K. Wu</p>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-venue">Computers &amp; Industrial Engineering</span>
+              <span class="paper-year">2022</span>
+            </div>
+          </li>
+          <li class="paper">
+            <span class="paper-number">03</span>
+            <div>
+              <h3>Production and pricing decisions for new and remanufactured products with customer prejudice and accurate response</h3>
+              <p class="paper-authors"><strong>Xiaoqian Shi</strong>, M. Zheng, T. Xia, W. Qin, and E. Pan</p>
+            </div>
+            <div class="paper-meta">
+              <span class="paper-venue">Computers &amp; Industrial Engineering</span>
+              <span class="paper-year">2021</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="teaching">
+      <div class="shell experience-wrap">
+        <div>
+          <h2 class="section-title">Teaching</h2>
+          <ul class="detail-list">
+            <li>
+              <div>
+                <strong>LGT3425 Business Analytics</strong>
+                <span>Teaching Assistant · Undergraduate<br>The Hong Kong Polytechnic University</span>
+              </div>
+              <time>Spring 2025</time>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="email-section">
+      <a class="email-link" href="mailto:xiaoqian.shi@connect.polyu.hk">xiaoqian.shi@connect.polyu.hk</a>
+    </section>
+  </main>
+
+  <footer class="shell site-footer">
+    <span>© <span id="year">2026</span> Xiaoqian Shi</span>
+    <span>Department of Logistics and Maritime Studies · The Hong Kong Polytechnic University</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
