@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Xiaoqian Shi | Operations Management</title>
   <meta name="description" content="Xiaoqian Shi is a Ph.D. candidate in Operations Management at The Hong Kong Polytechnic University.">
+  <link rel="canonical" href="https://xq-shi.github.io/">
   <style>
     :root {
       --text: #727272;
@@ -150,6 +152,16 @@
       font-weight: 600;
     }
 
+    .paper-heading { margin: 0 0 6px; }
+
+    .paper-heading .paper-title {
+      display: inline;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
     .education-entry,
     .education-title,
     .education-entry .date {
@@ -228,18 +240,47 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Xiaoqian Shi",
-    "jobTitle": "Ph.D. Candidate in Operations Management",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "The Hong Kong Polytechnic University"
-    },
-    "email": "mailto:xiaoqian.shi@connect.polyu.hk",
-    "knowsAbout": [
-      "Platform Operations",
-      "Socially Responsible and Sustainable Operations",
-      "Behavioral Operations"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://xq-shi.github.io/#website",
+        "url": "https://xq-shi.github.io/",
+        "name": "Xiaoqian Shi"
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://xq-shi.github.io/#profile",
+        "url": "https://xq-shi.github.io/",
+        "name": "Xiaoqian Shi | Operations Management",
+        "isPartOf": {
+          "@id": "https://xq-shi.github.io/#website"
+        },
+        "mainEntity": {
+          "@id": "https://xq-shi.github.io/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://xq-shi.github.io/#person",
+        "name": "Xiaoqian Shi",
+        "url": "https://xq-shi.github.io/",
+        "jobTitle": "Ph.D. Candidate in Operations Management",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "The Hong Kong Polytechnic University"
+        },
+        "email": "mailto:xiaoqian.shi@connect.polyu.hk",
+        "knowsAbout": [
+          "Platform Operations",
+          "Socially Responsible and Sustainable Operations",
+          "Behavioral Operations"
+        ],
+        "sameAs": [
+          "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7634619",
+          "https://www.researchgate.net/profile/Xiaoqian-Shi-7",
+          "https://scholar.google.com/citations?user=cmJ_SdAAAAAJ&hl=zh-CN"
+        ]
+      }
     ]
   }
   </script>
@@ -253,7 +294,7 @@
       <p>Ph.D. Candidate<br>The Hong Kong Polytechnic University</p>
       <p>Department of Logistics and Maritime Studies</p>
       <p>Email: <a href="mailto:xiaoqian.shi@connect.polyu.hk">xiaoqian.shi@connect.polyu.hk</a></p>
-      <p class="profile-links"><span class="cv-disabled" aria-disabled="true" title="CV is currently unavailable">CV</span></p>
+      <p class="profile-links"><a href="https://scholar.google.com/citations?user=cmJ_SdAAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar</a><span class="cv-disabled" aria-disabled="true" title="CV is currently unavailable">CV</span></p>
 
       <div class="research-focus">
         <p class="profile-label">Research Focus</p>
@@ -289,16 +330,16 @@
       <section id="working-papers">
         <h2>Working Papers</h2>
         <article class="paper">
-          <p><span class="paper-title">Supply Chain ESG Transparency: Emerging Trends, Research Gaps, and Opportunities in Operations Management</span> <a class="ssrn-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5256614" target="_blank" rel="noopener noreferrer">SSRN</a></p>
+          <div class="paper-heading"><h3 class="paper-title">Supply Chain ESG Transparency: Emerging Trends, Research Gaps, and Opportunities in Operations Management</h3> <a class="ssrn-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5256614" target="_blank" rel="noopener noreferrer">SSRN</a></div>
           <p class="paper-authors">with Yulan Wang, Pengfei Guo, Christopher Tang, and Jingwen Xu.</p>
           <p class="paper-status">Under minor revision at Production and Operations Management.</p>
         </article>
         <article class="paper">
-          <p><span class="paper-title">Stringent versus Lax Carbon Disclosure Regulation: Implications for Greenwashing and Welfare</span></p>
+          <div class="paper-heading"><h3 class="paper-title">Stringent versus Lax Carbon Disclosure Regulation: Implications for Greenwashing and Welfare</h3></div>
           <p class="paper-authors">with Yulan Wang, Christopher Tang, and Xiaoshuai Fan.</p>
         </article>
         <article class="paper">
-          <p><span class="paper-title">Returnless Refunds: Combating Fraudulent Returns in Competitive Markets</span></p>
+          <div class="paper-heading"><h3 class="paper-title">Returnless Refunds: Combating Fraudulent Returns in Competitive Markets</h3></div>
           <p class="paper-authors">with Yulan Wang and Tingliang Huang.</p>
         </article>
       </section>
