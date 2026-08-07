@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Xiaoqian Shi | Operations Management</title>
+  <meta name="description" content="Xiaoqian Shi is a Ph.D. candidate in Operations Management at The Hong Kong Polytechnic University.">
+  <style>
+    :root {
+      --text: #727272;
+      --heading: #222222;
+      --subheading: #494949;
+      --link: #267cb9;
+      --line: #e5e5e5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      padding: 50px 24px;
+      background: #ffffff;
+      color: var(--text);
+      font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    a:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 10;
+      transform: translateY(-150%);
+      padding: 7px 10px;
+      background: var(--heading);
+      color: white;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .wrapper {
+      width: 960px;
+      max-width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 600px);
+      gap: 90px;
+      align-items: start;
+    }
+
+    .profile {
+      position: sticky;
+      top: 50px;
+      align-self: start;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      color: var(--heading);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    h1 a { color: var(--heading); }
+
+    h1 a:hover { text-decoration: none; }
+
+    h2 {
+      margin: 0 0 20px;
+      color: var(--subheading);
+      font-size: 16.38px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    p { margin: 0 0 20px; }
+
+    .profile p { max-width: 260px; }
+
+    .profile-label {
+      margin-bottom: 6px;
+      color: var(--subheading);
+      font-weight: 700;
+    }
+
+    .profile-links span,
+    .profile-links a {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .cv-disabled {
+      color: #9b9b9b;
+      cursor: not-allowed;
+    }
+
+    .research-focus {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .research-focus p:last-child { margin-bottom: 0; }
+
+    .content { min-width: 0; }
+
+    hr {
+      height: 1px;
+      margin: 0 0 20px;
+      border: 0;
+      background: var(--line);
+    }
+
+    section + hr { margin-top: 4px; }
+
+    .education-entry,
+    .paper,
+    .teaching-entry { margin-bottom: 20px; }
+
+    .education-entry p,
+    .paper p,
+    .teaching-entry p { margin-bottom: 6px; }
+
+    .education-entry p:last-child,
+    .paper p:last-child,
+    .teaching-entry p:last-child { margin-bottom: 0; }
+
+    .paper-title,
+    .course-title {
+      color: var(--subheading);
+      font-weight: 600;
+    }
+
+    .education-entry,
+    .education-title,
+    .education-entry .date {
+      color: var(--text);
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 400;
+    }
+
+    .education-line { white-space: nowrap; }
+
+    .date {
+      color: inherit;
+      white-space: nowrap;
+    }
+
+    .paper-authors,
+    .paper-detail { color: var(--text); }
+
+    .paper-detail { font-style: italic; }
+
+    .paper-status {
+      color: var(--subheading);
+      font-style: italic;
+    }
+
+    .ssrn-link {
+      margin-left: 4px;
+      font: inherit;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: #9b9b9b;
+      font-size: 13px;
+    }
+
+    footer p { margin-bottom: 0; }
+
+    @media (max-width: 1040px) {
+      body { padding-top: 36px; }
+
+      .wrapper {
+        width: 680px;
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .profile {
+        position: static;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .profile p { max-width: 520px; }
+
+      .research-focus {
+        max-width: 520px;
+        margin-top: 22px;
+      }
+
+      .education-line { white-space: normal; }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 28px 18px; }
+      h1 { font-size: 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Xiaoqian Shi",
+    "jobTitle": "Ph.D. Candidate in Operations Management",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "The Hong Kong Polytechnic University"
+    },
+    "email": "mailto:xiaoqian.shi@connect.polyu.hk",
+    "knowsAbout": [
+      "Platform Operations",
+      "Socially Responsible and Sustainable Operations",
+      "Behavioral Operations"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrapper">
+    <aside class="profile" aria-label="Profile">
+      <h1><a href="#main">Xiaoqian Shi</a></h1>
+      <p>Ph.D. Candidate<br>The Hong Kong Polytechnic University</p>
+      <p>Department of Logistics and Maritime Studies</p>
+      <p>Email: <a href="mailto:xiaoqian.shi@connect.polyu.hk">xiaoqian.shi@connect.polyu.hk</a></p>
+      <p class="profile-links"><span class="cv-disabled" aria-disabled="true" title="CV is currently unavailable">CV</span></p>
+
+      <div class="research-focus">
+        <p class="profile-label">Research Focus</p>
+        <p>Platform Operations<br>Socially Responsible and Sustainable Operations<br>Behavioral Operations</p>
+      </div>
+    </aside>
+
+    <main class="content" id="main">
+      <section id="about">
+        <h2>About</h2>
+        <p>I am a Ph.D. candidate in Operations Management at The Hong Kong Polytechnic University. My research focuses on platform operations, socially responsible and sustainable operations, and behavioral operations.</p>
+      </section>
+
+      <hr>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="education-entry">
+          <p class="education-line"><span class="education-title">Ph.D., Operations Management, The Hong Kong Polytechnic University</span>, <span class="date">2022–Present</span></p>
+          <p>Advisor: Prof. Yulan Wang</p>
+        </div>
+        <div class="education-entry">
+          <p class="education-line"><span class="education-title">M.S., Industrial Engineering, Shanghai Jiao Tong University</span>, <span class="date">2019–2022</span></p>
+        </div>
+        <div class="education-entry">
+          <p class="education-line"><span class="education-title">B.Eng., Industrial Engineering, Chongqing University</span>, <span class="date">2015–2019</span></p>
+          <p>B.Ec., Finance</p>
+        </div>
+      </section>
+
+      <hr>
+
+      <section id="working-papers">
+        <h2>Working Papers</h2>
+        <article class="paper">
+          <p><span class="paper-title">Supply Chain ESG Transparency: Emerging Trends, Research Gaps, and Opportunities in Operations Management</span> <a class="ssrn-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5256614" target="_blank" rel="noopener noreferrer">SSRN</a></p>
+          <p class="paper-authors">with Yulan Wang, Pengfei Guo, Christopher Tang, and Jingwen Xu.</p>
+          <p class="paper-status">Under minor revision at Production and Operations Management.</p>
+        </article>
+        <article class="paper">
+          <p><span class="paper-title">Stringent versus Lax Carbon Disclosure Regulation: Implications for Greenwashing and Welfare</span></p>
+          <p class="paper-authors">with Yulan Wang, Christopher Tang, and Xiaoshuai Fan.</p>
+        </article>
+        <article class="paper">
+          <p><span class="paper-title">Returnless Refunds: Combating Fraudulent Returns in Competitive Markets</span></p>
+          <p class="paper-authors">with Yulan Wang and Tingliang Huang.</p>
+        </article>
+      </section>
+
+      <hr>
+
+      <section id="publications">
+        <h2>Publications</h2>
+        <article class="paper">
+          <p class="paper-title">Optimal product and after-sales service decisions considering risk attitudes under price-dependent uncertain demand</p>
+          <p class="paper-authors">with Q. Wang, M. Zheng, K. M. Lee, Y. Shen, and E. Pan.</p>
+          <p class="paper-detail">Transportation Research Part E, 2024.</p>
+        </article>
+        <article class="paper">
+          <p class="paper-title">Supply chain analysis for standard and customized products with postponement</p>
+          <p class="paper-authors">with M. Zheng, E. Pan, and K. Wu.</p>
+          <p class="paper-detail">Computers &amp; Industrial Engineering, 2022.</p>
+        </article>
+        <article class="paper">
+          <p class="paper-title">Production and pricing decisions for new and remanufactured products with customer prejudice and accurate response</p>
+          <p class="paper-authors">with M. Zheng, T. Xia, W. Qin, and E. Pan.</p>
+          <p class="paper-detail">Computers &amp; Industrial Engineering, 2021.</p>
+        </article>
+      </section>
+
+      <hr>
+
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <div class="teaching-entry">
+          <p><span class="course-title">LGT3425 Business Analytics</span>, Teaching Assistant, Undergraduate, <span class="date">Spring 2025</span>.</p>
+          <p>The Hong Kong Polytechnic University.</p>
+        </div>
+      </section>
+
+      <hr>
+
+      <footer>
+        <p>© <span id="year">2026</span> Xiaoqian Shi. Thanks for visiting.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
